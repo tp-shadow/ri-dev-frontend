@@ -25,6 +25,7 @@ RUN rm -rf /usr/share/nginx/html/*
 
 ## From 'builder' copy website to default nginx public folder
 COPY --from=builder /app/dist/backend /usr/share/nginx/html
+COPY --from=builder /app/.htaccess /usr/share/nginx/html/
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
